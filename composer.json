@@ -1,0 +1,13 @@
+{
+  "name": "leankoala/pa11ybridge",
+  "description": "PHP bridge for the Google Lighthouse CLI tool",
+  "license": "MIT",
+  "require": {
+    "php": ">= 5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lenkoala\\Pa11yBridge\\": "src/"
+    }
+  }
+}
