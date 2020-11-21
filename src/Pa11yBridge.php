@@ -23,6 +23,15 @@ class Pa11yBridge
     const STANDARD_WCAG_2_AAA = 'WCAG2AAA';
     const STANDARD_SECTION_508 = 'Section508';
 
+    const CONFIG_DEFAULT_FILE = __DIR__ . "/../pa11y/config.json";
+
+    private $configFile;
+
+    public function __construct($configFile = self::CONFIG_DEFAULT_FILE)
+    {
+        $this->configFile = $configFile;
+    }
+
     /**
      * @param UriInterface $uri
      * @param string $standard
@@ -32,7 +41,7 @@ class Pa11yBridge
     public function runAudit(UriInterface $uri, $standard = self::STANDARD_WCAG_2_A)
     {
         $command = "node " . __DIR__ . "/../pa11y/node_modules/pa11y/bin/pa11y.js";
-        $command .= " -s " . $standard . " -r json  -c config.json ";
+        $command .= " -s " . $standard . " -r json  -c " . $this->configFile . " ";
         $command .= "\"" . (string)$uri . "\"";
 
         exec($command, $output, $code);
