@@ -12,7 +12,6 @@ use Psr\Http\Message\UriInterface;
  *
  * @see https://github.com/pa11y/pa11y
  *
- *
  * @author Nils Langner (nils.langner@leankoala.com)
  * @created 2020-11-20
  */
@@ -27,6 +26,11 @@ class Pa11yBridge
 
     private $configFile;
 
+    /**
+     * Pa11yBridge constructor.
+     *
+     * @param string $configFile
+     */
     public function __construct($configFile = self::CONFIG_DEFAULT_FILE)
     {
         $this->configFile = $configFile;
